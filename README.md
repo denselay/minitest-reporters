@@ -1,15 +1,30 @@
-[gem]: https://rubygems.org/gems/minitest-reporters
+[gem]: https://rubygems.org/gems/minitest-reporters-next
+[github]: https://github.com/denselay/minitest-reporters
 
-# minitest-reporters - create customizable Minitest output formats
+# minitest-reporters-next
 
-[![Gem Version](https://badge.fury.io/rb/minitest-reporters.svg)][gem]
-[![Build Status](https://github.com/minitest-reporters/minitest-reporters/actions/workflows/ci.yml/badge.svg?event=push&branch=master)](https://github.com/minitest-reporters/minitest-reporters/actions?query=event%3Apush+branch%3Amaster)
+[![Gem Version](https://img.shields.io/gem/v/minitest-reporters-next.svg)][gem]
 
-Death to haphazard monkey-patching! Extend Minitest through simple hooks.
+[Gem][gem] |
+[Source][github]
+
+> **Community-maintained fork** of [minitest-reporters/minitest-reporters](https://github.com/minitest-reporters/minitest-reporters).
+> Published as `minitest-reporters-next` on RubyGems since the original gem is no longer actively maintained.
+
+Create customizable Minitest output formats. Extend Minitest through simple hooks.
+
+## What changed in 2.0.0
+
+- Replaced `alias_method` chaining with `Module#prepend` for `Minitest::Test#run` hooks, fixing infinite recursion (`SystemStackError`) when used alongside other prepend-based minitest plugins (e.g. minitest-around)
+- Compatibility with minitest 5.x and 6.x
+- Compatibility with Rails 8.1+
+- Dropped support for Ruby < 2.3
+
+This is a drop-in replacement — `require 'minitest/reporters'` and `Minitest::Reporters.use!` work exactly the same.
 
 ## Installation ##
 
-    gem install minitest-reporters
+    gem install minitest-reporters-next
 
 ## Usage ##
 
@@ -128,8 +143,13 @@ The [Test Anything Protocol](https://testanything.org) is a specification for ou
 
 ## Resources ##
 
-* [GitHub Repository](https://github.com/minitest-reporters/minitest-reporters/)
-* [Documentation](https://www.rubydoc.info/github/minitest-reporters/minitest-reporters)
+* [GitHub Repository](https://github.com/denselay/minitest-reporters)
+* [Original Repository](https://github.com/minitest-reporters/minitest-reporters/)
+
+## Authors ##
+
+* [Alexander Kern](https://github.com/kern) (original author)
+* [Mike Voets](https://github.com/mikevoets) (fork maintainer)
 
 ## License ##
 

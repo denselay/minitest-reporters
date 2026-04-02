@@ -1,4 +1,11 @@
-### [dev](https://github.com/minitest-reporters/minitest-reporters/compare/v1.7.1...master)
+### [2.0.0](https://github.com/denselay/minitest-reporters/compare/v1.7.1...v2.0.0)
+
+* **Breaking**: Replaced `alias_method` chaining with `Module#prepend` for `Minitest::Test#run` hooks. Fixes `SystemStackError` (infinite recursion) when used alongside other prepend-based minitest plugins such as minitest-around.
+  [kern/minitest-reporters#357](https://github.com/kern/minitest-reporters/pull/357) contributed by [grosser](https://github.com/grosser)
+* Added support for minitest 6.
+  [kern/minitest-reporters#366](https://github.com/kern/minitest-reporters/pull/366) contributed by [Maimer](https://github.com/Maimer)
+* Dropped support for Ruby < 2.3.
+* Published as `minitest-reporters-next` — community-maintained fork.
 
 ### [1.7.1](https://github.com/minitest-reporters/minitest-reporters/compare/v1.7.0...v1.7.1)
 * Fixed logic of new `suppress_inline_failure_output`. This option was doing the opposite of what it intended to do.
